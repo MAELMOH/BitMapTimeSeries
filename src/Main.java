@@ -2,7 +2,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Classe principale pour exécuter l'application.
+ */
 public class Main {
+    /**
+     * Point d'entrée de l'application.
+     *
+     * @param args les arguments de la ligne de commande.
+     */
     public static void main(String[] args) {
         // Création des objets des différentes classes
         Matrice_Sax matrice = new Matrice_Sax();

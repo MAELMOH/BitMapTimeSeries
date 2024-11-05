@@ -10,9 +10,9 @@ import java.util.Scanner;
  * séquence de symboles, facilitant ainsi l'analyse des motifs.
  */
 public class Sax {
+    private List<Character> lettersList;
 
     private List<Double> numbersList;
-    private List<Character> lettersList;
     private List<Double> intervalBounds;
     private char[] alphabet;
 
