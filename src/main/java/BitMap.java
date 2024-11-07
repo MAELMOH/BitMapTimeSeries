@@ -1,3 +1,5 @@
+package main.java;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -7,7 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * La classe BitMap permet de générer une image bitmap en niveaux de gris à partir
+ * La classe main.java.BitMap permet de générer une image bitmap en niveaux de gris à partir
  * d'une matrice d'occurrences. Elle normalise les valeurs d'occurrence entre 0 et 100,
  * où 0 représente le blanc et 100 représente le noir, pour créer une visualisation
  * graphique des données.
@@ -93,7 +95,7 @@ public class BitMap {
      * @param matrix La matrice d'occurrence pour laquelle la valeur maximale est recherchée.
      * @return La valeur maximale trouvée dans la matrice.
      */
-    private int trouverMax(int[][] matrix) {
+    public int trouverMax(int[][] matrix) {
         int max = Integer.MIN_VALUE;
         for (int[] row : matrix) {
             for (int val : row) {

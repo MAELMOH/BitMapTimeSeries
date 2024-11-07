@@ -1,3 +1,5 @@
+package main.java;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -5,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * La classe IoTimeSeries permet de lire une série de nombres à partir d'un fichier
+ * La classe main.java.IoTimeSeries permet de lire une série de nombres à partir d'un fichier
  * texte et de stocker ces valeurs dans une liste de nombres en virgule flottante.
  * Elle peut être utilisée pour lire des séries temporelles ou des données numériques
  * à partir de fichiers.
@@ -51,7 +53,7 @@ public class IoTimeSeries {
 
     /*
     public static void main(String[] args) {
-        IoTimeSeries ioTimeSeries = new IoTimeSeries();
+        main.java.IoTimeSeries ioTimeSeries = new main.java.IoTimeSeries();
         String fileName = "nombres.txt";
         // String fileName = "nombres_2.csv";
 

@@ -1,10 +1,12 @@
+package main.java;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * La classe Matrice_Sax permet de gérer les opérations liées aux mots et matrices générés
+ * La classe main.java.Matrice_Sax permet de gérer les opérations liées aux mots et matrices générés
  * à partir de séries de lettres. Elle permet de découper les séries en mots, de générer
  * des matrices basées sur des lettres et des combinaisons de lettres, et de compter
  * les occurrences des lettres ou des combinaisons dans ces matrices.
@@ -234,5 +236,16 @@ public class Matrice_Sax {
         }
 
         return occurrencesMatrix;
+    }
+
+    /**
+     * Définit la liste de mots pour l'analyse des occurrences.
+     * Cette liste est utilisée dans les méthodes de comptage des occurrences
+     * afin de vérifier la fréquence des lettres ou des combinaisons de lettres.
+     *
+     * @param wordsList La liste de mots à analyser
+     */
+    public void setWordsList(List<String> wordsList) {
+        this.wordsList = wordsList;
     }
 }

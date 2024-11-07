@@ -1,10 +1,9 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+package main.java;
+
+import java.util.*;
 
 /**
- * La classe Sax permet de transformer une liste de nombres en une liste de lettres
+ * La classe main.java.Sax permet de transformer une liste de nombres en une liste de lettres
  * basée sur des intervalles définis par l'utilisateur. Elle utilise l'algorithme
  * Symbolic Aggregate approXimation (SAX) pour simplifier la série temporelle en
  * séquence de symboles, facilitant ainsi l'analyse des motifs.
@@ -19,10 +18,19 @@ public class Sax {
     /**
      * Définit la liste de nombres à transformer.
      *
-     * @param numbersList La liste de nombres fournie par IoTimeSeries.
+     * @param numbersList La liste de nombres fournie par main.java.IoTimeSeries.
      */
     public void setNumbersList(List<Double> numbersList) {
         this.numbersList = numbersList;
+    }
+
+    /**
+     * Récupère la liste des nombres (pour les tests).
+     *
+     * @return La liste de nombres fournie.
+     */
+    public List<Double> getNumbersList() {
+        return numbersList;
     }
 
     /**
@@ -73,7 +81,7 @@ public class Sax {
      * @param number Le nombre à transformer.
      * @return La lettre correspondant à l'intervalle du nombre.
      */
-    private char getLetterForNumber(double number) {
+    public char getLetterForNumber(double number) {
         for (int i = 0; i < intervalBounds.size(); i++) {
             if (i == 0 && number <= intervalBounds.get(i)) {
                 // Pour la première borne, inclure <=
@@ -85,6 +93,29 @@ public class Sax {
         }
         // Si la valeur est supérieure à toutes les bornes, on retourne la dernière lettre
         return alphabet[alphabet.length - 1];
+    }
+
+    /**
+     * Définit la liste des bornes d'intervalles pour les tests unitaires.
+     * Cette méthode retire les doublons, ignore les valeurs nulles et trie la liste.
+     *
+     * @param intervals La liste des bornes d'intervalles
+     */
+    public void saisirIntervalles(List<Double> intervals) {
+        if (intervals == null || intervals.isEmpty()) {
+            System.out.println("La liste des intervalles est vide ou nulle.");
+            return;
+        }
+
+        Set<Double> uniqueIntervals = new HashSet<>();
+        for (Double interval : intervals) {
+            if (interval != null) {
+                uniqueIntervals.add(interval);
+            }
+        }
+
+        this.intervalBounds = new ArrayList<>(uniqueIntervals);
+        Collections.sort(this.intervalBounds);
     }
 
     /**
@@ -101,7 +132,6 @@ public class Sax {
             System.out.print("Entrez une valeur ou une lettre pour arrêter : ");
             String input = scanner.nextLine();
 
-            // Arrête la saisie si une lettre est entrée
             try {
                 double valeur = Double.parseDouble(input);
                 if (intervalBounds.contains(valeur)) {
@@ -119,7 +149,6 @@ public class Sax {
             }
         }
 
-        // Trier les intervalles
         Collections.sort(intervalBounds);
     }
 
