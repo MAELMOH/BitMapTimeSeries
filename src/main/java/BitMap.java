@@ -1,5 +1,6 @@
 package main.java;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -52,7 +53,7 @@ public class BitMap {
         }
 
         // Vérifier si le dossier "tests" existe, sinon le créer
-        Path outputDir = Paths.get("test4");
+        Path outputDir = Paths.get("tests");
         if (!Files.exists(outputDir)) {
             try {
                 Files.createDirectory(outputDir);
@@ -106,4 +107,20 @@ public class BitMap {
         }
         return max;
     }
+    public BufferedImage scaleImage(BufferedImage originalImage, int width, int height) {
+        BufferedImage scaledImage = new BufferedImage(width, height, originalImage.getType());
+        Graphics2D g2d = scaledImage.createGraphics();
+
+        // Activer l'interpolation pour un rendu net
+        g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
+        g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
+
+        // Dessiner l'image redimensionnée
+        g2d.drawImage(originalImage, 0, 0, width, height, null);
+        g2d.dispose();
+
+        return scaledImage;
+    }
+
 }

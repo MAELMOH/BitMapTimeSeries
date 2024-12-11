@@ -238,6 +238,10 @@ public class Matrice_Sax {
         return occurrencesMatrix;
     }
 
+    public List<String> getWordsList() {
+        return wordsList;
+    }
+
     /**
      * Définit la liste de mots pour l'analyse des occurrences.
      * Cette liste est utilisée dans les méthodes de comptage des occurrences
