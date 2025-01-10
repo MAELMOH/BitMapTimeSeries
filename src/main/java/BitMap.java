@@ -17,6 +17,8 @@ import java.nio.file.Paths;
  */
 public class BitMap {
 
+    private int[][] normalizedMatrix;
+
     /**
      * Génère un fichier bitmap à partir d'une matrice d'occurrences.
      *
@@ -29,7 +31,7 @@ public class BitMap {
         // Création de la nouvelle matrice normalisée entre 0 et 100
         int rows = occurrenceMatrix.length;
         int cols = occurrenceMatrix[0].length; // Récupérer le nombre de colonnes
-        int[][] normalizedMatrix = new int[rows][cols];
+        normalizedMatrix = new int[rows][cols];
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
@@ -121,6 +123,15 @@ public class BitMap {
         g2d.dispose();
 
         return scaledImage;
+    }
+
+    /**
+     * Getter pour la matrice normalisée.
+     *
+     * @return La matrice normalisée.
+     */
+    public int[][] getNormalizedMatrix() {
+        return normalizedMatrix;
     }
 
 }

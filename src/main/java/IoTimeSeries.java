@@ -18,7 +18,7 @@ public class IoTimeSeries {
      * Liste de nombres en virgule flottante représentant les valeurs lues
      * depuis le fichier.
      */
-    private List<Double> numbersList;
+    private List<Double> numbersList = new ArrayList<>();
 
     /**
      * Lit les nombres à partir d'un fichier texte spécifié et les stocke dans la liste
@@ -28,8 +28,8 @@ public class IoTimeSeries {
      * @param fileName le chemin du fichier à lire.
      * @throws IOException si une erreur d'entrée/sortie survient lors de la lecture du fichier.
      */
-    public void lireListe(String fileName) throws IOException {
-        numbersList = new ArrayList<>();
+    public List<Double> lireListe(String fileName) throws IOException {
+        numbersList.clear();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -40,6 +40,7 @@ public class IoTimeSeries {
                 }
             }
         }
+        return numbersList;
     }
 
     /**
