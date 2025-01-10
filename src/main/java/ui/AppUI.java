@@ -26,7 +26,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.imageio.ImageIO;
 
-public class AppUI2 extends Application {
+public class AppUI extends Application {
 
     private IoTimeSeries ioTimeSeries = new IoTimeSeries();
     private Sax sax = new Sax();
