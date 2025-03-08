@@ -141,8 +141,8 @@ public class AppUI extends Application {
 
         Button generateBitmapButton = new Button("Générer Bitmap");
         ImageView bitmapView = new ImageView();
-        bitmapView.setFitWidth(300);
-        bitmapView.setFitHeight(300);
+        bitmapView.setFitWidth(200);
+        bitmapView.setFitHeight(200);
         bitmapView.setPreserveRatio(true);
 
         generateBitmapButton.setOnAction(e -> {
@@ -174,9 +174,9 @@ public class AppUI extends Application {
                 bitMap.genererBitmap(occurrenceMatrix, "generated_bitmap");
                 File bitmapFile = new File("tests/generated_bitmap.bmp");
                 BufferedImage originalImage = ImageIO.read(bitmapFile);
-                BufferedImage scaledImage = bitMap.scaleImage(originalImage, 300, 300);
+                BufferedImage scaledImage = bitMap.scaleImage(originalImage, 200, 200);
 
-                File scaledFile = new File("tests/generated_bitmap_scaled.bmp");
+                File scaledFile = new File("tests/generated_bitmap_image.bmp");
                 ImageIO.write(scaledImage, "bmp", scaledFile);
 
                 Image bitmapImage = new Image(scaledFile.toURI().toString());
